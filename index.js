@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use('/api/v1/blackcoffer',insertRouter);
-app.use('/api/v1/blackcoffer/dashboard',dashboardRouter);
+app.use('/api/v1/json',insertRouter);
+app.use('/api/v1/dashboard',dashboardRouter);
 
 
 const port  = 8080;

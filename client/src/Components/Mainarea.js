@@ -6,7 +6,7 @@ import PieChart from "./PieChart";
 import RadarChart from "./RadarChart";
 
 const Mainarea = () => {
-  const url = "http://localhost:8080/api/v1/blackcoffer/dashboard/analytics";
+  const url = "http://localhost:8080/api/v1/dashboard/analytics";
   let updatedURL = "";
   const [responseData, setresponseData] = useState([]);
 

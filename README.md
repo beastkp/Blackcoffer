@@ -8,7 +8,7 @@ This Project is aimed at providing insights on the data based on various countri
 Clone the Project
 
 ```bash
-git clone https://github.com/beastkp/Blackcoffer.git
+git clone https://github.com/beastkp/Resource_Insights.git
 ```
 Install libraries using npm in the outer folder.
 
@@ -35,14 +35,14 @@ npm start
 #### Inserting items from json data file "data.json" to database.
 
 ```http
-  GET /api/v1/blackcoffer/insert
+  GET /api/v1/json/insert
 ```
 
 
 #### For Viewing Charts on localhost
 
 ```http
-  GET /api/v1/blackcoffer/dashboard/analytics 
+  GET /api/v1/dashboard/analytics 
 ```
 
 
