@@ -1,9 +1,7 @@
-# Blackcoffer
 
+# Resource Insights
 
-# Unveiling Insights
-
-This Project is aimed at providing visual insights on the data stored in the database. 
+This Project is aimed at providing insights on the data based on various countries and their import and export likelihood and intensities.
 
 ## Installation
 
