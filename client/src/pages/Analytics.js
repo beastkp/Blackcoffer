@@ -4,8 +4,7 @@ import Mainarea from '../Components/Mainarea'
 const Analytics = () => {
   return (
     <div>
-        <Mainarea/>
-        
+        <Mainarea/>       
     </div>
   )
 }

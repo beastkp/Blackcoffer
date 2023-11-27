@@ -18,8 +18,8 @@ const Sidebar = () => {
   return (
     <>
       <div className="fixed bg-black w-[230px] h-screen p-2">
-        <h1 className="text-white font-bold font-mono text-3xl py-3 text-center">
-          Insights
+        <h1 className="text-white font-bold  text-3xl py-3 text-center">
+          <Link to="/">LST Goods</Link>
         </h1>
         <div>
           <div className="flex mt-5">

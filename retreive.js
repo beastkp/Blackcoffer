@@ -5,8 +5,6 @@ const data = JSON.parse(rawData);
 
 const documents = data.items;
 
-
-
 const Chart = require("./models/chart"); 
 const insertData = async (req,res)=>{
   try {
