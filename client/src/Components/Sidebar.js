@@ -10,14 +10,16 @@ import {
   BiCalendarEdit,
   BiBookReader,
 } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setisOpen] = useState(false);
+  const [isSidebarOpen, setisSidebarOpen] = useState(false);
   return (
     <>
-      <div className="fixed bg-black w-[230px] h-screen p-2">
+      <div className="hidden md:block fixed bg-black w-[230px] h-screen p-2">
         <h1 className="text-white font-bold  text-3xl py-3 text-center">
           <Link to="/">LST Goods</Link>
         </h1>
@@ -74,6 +76,9 @@ const Sidebar = () => {
             </div>
           </ul>
         </div>
+      </div>
+      <div className="md:hidden fixed top-10 left-10">
+        <GiHamburgerMenu onClick={() => setisSidebarOpen(!isSidebarOpen)} />
       </div>
     </>
   );

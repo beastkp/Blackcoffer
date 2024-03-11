@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import BarChart from "./BarChart";
@@ -13,6 +13,14 @@ const Mainarea = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedTopic, setSelectedTopic] = useState("");
   const [selectedSector, setSelectedSector] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("");
+
+  useEffect(() => {
+    updateURL();
+  }, []);
+  useEffect(() => {
+    updateURL();
+  }, [selectedCountry, selectedTopic, selectedSector, selectedRegion]);
 
   const countries = [
     "United States of America",
@@ -51,6 +59,17 @@ const Mainarea = () => {
     "Information Technology",
     "Healthcare",
   ];
+  const regions = [
+    "Northern America",
+    "Central America",
+    "World",
+    "Western Africa",
+    "Western Asia",
+    "Central Africa",
+    "Northern Africa",
+    "Southern Asia",
+    "Central Asia",
+  ];
 
   const updateURL = () => {
     const queryParams = [];
@@ -63,6 +82,9 @@ const Mainarea = () => {
     }
     if (selectedSector) {
       queryParams.push(`sector=${selectedSector}`);
+    }
+    if (selectedRegion) {
+      queryParams.push(`region=${selectedRegion}`);
     }
 
     const queryString = queryParams.join("&");
@@ -79,15 +101,14 @@ const Mainarea = () => {
   };
 
   return (
-    <div className="ml-[250px]">
-      <div className="grid grid-cols-3">
+    <div className="md:ml-[250px] md:block flex flex-col items-center">
+      <div className="md:grid grid-cols-4">
         {/* Country Dropdown */}
         <div className="relative col-span-1 p-3">
           <label className="block m-2 p-2">Country:</label>
           <select
             value={selectedCountry}
             onChange={(e) => setSelectedCountry(e.target.value)}
-            onBlur={updateURL}
             className="block appearance-none border rounded py-2 px-4 focus:outline-none focus:border-blue-500"
           >
             <option value="">Select a country</option>
@@ -105,7 +126,6 @@ const Mainarea = () => {
           <select
             value={selectedTopic}
             onChange={(e) => setSelectedTopic(e.target.value)}
-            onBlur={updateURL}
             className="block appearance-none border rounded py-2 px-4 focus:outline-none focus:border-blue-500"
           >
             <option value="">Select a topic</option>
@@ -117,13 +137,28 @@ const Mainarea = () => {
           </select>
         </div>
 
+        <div className="relative col-span-1  p-3">
+          <label className="block m-2 p-2">Region:</label>
+          <select
+            value={selectedRegion}
+            onChange={(e) => setSelectedRegion(e.target.value)}
+            className="block appearance-none border rounded py-2 px-4 focus:outline-none focus:border-blue-500"
+          >
+            <option value="">Select a Region</option>
+            {regions.map((region, index) => (
+              <option key={index} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {/* Sector Dropdown */}
         <div className="relative col-span-1  p-3">
           <label className="block m-2 p-2">Sector:</label>
           <select
             value={selectedSector}
             onChange={(e) => setSelectedSector(e.target.value)}
-            onBlur={updateURL}
             className="block appearance-none border rounded py-2 px-4 focus:outline-none focus:border-blue-500"
           >
             <option value="">Select a sector</option>
@@ -135,28 +170,44 @@ const Mainarea = () => {
           </select>
         </div>
       </div>
-      <BarChart
-        responseData={responseData}
-        countries={countries}
-        topics={topics}
-        sectors={sectors}
-      />
-      <div className="grid grid-cols-2">
-        <div className="m-10 p-2">
+      <div className="p-3 bg-white shadow-lg rounded-lg border-gray-700 m-2">
+        <BarChart
+          className="w-full h-48" // Adjust height and width as needed
+          responseData={responseData}
+          countries={countries}
+          topics={topics}
+          sectors={sectors}
+          regions={regions}
+        />
+        <p className="p-3 text-center font-semibold text-gray-500 text-xl">
+          Likelihood of export by various countries
+        </p>
+      </div>
+
+      <div className="md:grid grid-cols-2">
+        <div className="m-10 p-2 bg-white shadow-lg rounded-lg border-gray-700 col-span-1 flex flex-col items-center justify-center">
           <PieChart
             responseData={responseData}
             countries={countries}
             topics={topics}
             sectors={sectors}
+            regions={regions}
           />
+          <p className="p-3 pt-5 font-semibold text-gray-500 text-xl">
+            Topic wise distribution
+          </p>
         </div>
-        <div className="m-10 p-2">
+        <div className="m-10 p-2 bg-white shadow-lg rounded-lg border-gray-700 col-span-1 flex flex-col items-center justify-center">
           <RadarChart
             responseData={responseData}
             countries={countries}
             topics={topics}
             sectors={sectors}
+            regions={regions}
           />
+          <p className="p-3 font-semibold text-gray-500 text-xl">
+            Sector wise Intensity
+          </p>
         </div>
       </div>
     </div>

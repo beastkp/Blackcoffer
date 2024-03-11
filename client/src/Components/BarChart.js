@@ -2,7 +2,7 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
-const BarChart = ({ responseData, countries, topics, sectors }) => {
+const BarChart = ({ responseData, countries, topics, sectors, regions }) => {
   let liklihood = new Array(countries.length).fill(0); // Initialize an array with zeros
   let finalResponse = [...responseData];
   finalResponse.forEach((item) => {
@@ -22,6 +22,9 @@ const BarChart = ({ responseData, countries, topics, sectors }) => {
         label: "Liklihood",
         backgroundColor: "rgb(0, 0, 100)",
         borderColor: "rgb(255, 99, 132)",
+        borderRadius: "7",
+        hoverBackgroundColor: "rgb(150, 100, 150)",
+        offset: "false",
         data: liklihood,
       },
     ],
@@ -30,8 +33,10 @@ const BarChart = ({ responseData, countries, topics, sectors }) => {
   console.log(liklihood);
   return (
     <div>
-      <Bar data={Bardata} width={500} height={200} />
-      {console.log("The response data is ", responseData)}
+      <div>
+        <Bar data={Bardata} width={500} height={200} />
+        {console.log("The response data is ", responseData)}
+      </div>
     </div>
   );
 };
