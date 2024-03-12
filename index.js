@@ -18,7 +18,7 @@ app.use(
         connectSrc: [
           "'self'",
           "http://127.0.0.1:8000",
-          "https://resource-insights.onrender.com/",    
+          "ws://localhost:42877/",
         ],
       },
     },
