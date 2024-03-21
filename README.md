@@ -45,6 +45,18 @@ npm start
   GET /api/v1/dashboard/analytics 
 ```
 
+#### Images of visuals
+![image](https://github.com/beastkp/Resource_Insights/assets/91586330/5d6021c8-9cf3-4159-8849-61f400ebec47)
+![image](https://github.com/beastkp/Resource_Insights/assets/91586330/b97a1d8c-c754-4000-87de-d29a975ab7c3)
+![image](https://github.com/beastkp/Resource_Insights/assets/91586330/9b385bc3-9821-4605-9fc4-0db19b7697e5)
+![image](https://github.com/beastkp/Resource_Insights/assets/91586330/8c9f3207-cd8e-48f4-ac30-c8598423819a)
+![image](https://github.com/beastkp/Resource_Insights/assets/91586330/bba6a667-68a5-4fad-b8e5-fc443671911e)
+
+
+
+
+
+
 
 
 ## Appendix
