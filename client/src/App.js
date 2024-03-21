@@ -8,7 +8,6 @@ import Homepage from './pages/Homepage';
 
 
 function App() {
-  const hasSidebar = true;
   return (
     <>
       <Router>
@@ -17,7 +16,7 @@ function App() {
           <Route
             exact
             path="/"
-            element={<Homepage hasSidebar={hasSidebar} />}
+            element={<Homepage/>}
           />
           <Route exact path="/analytics" element={<Analytics />} />
           <Route exact path="/E-Commerce" element={<Ecommerce />} />
